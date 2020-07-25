@@ -1,0 +1,106 @@
+<!doctype>
+<html>
+<header style="text-color:red;padding:30 30 30 30;">
+   <title>Registration form</title>
+</header
+>
+<body>
+<form>
+<center>
+<table>
+   <tr>
+         <th colspan=2>Registration form for ticket booking</th>
+   </tr>
+   <tr>
+        <td>First name:</td>
+        <td><input type="text" id="fname" name="fname"  onchange="change()"></td>
+  </tr>
+  <tr>
+        <td>Last name:</td>
+        <td><input type="text" id="lname" name="lname" onchange="change()" ></td>
+  </tr>
+  <tr>
+        <td>Age:</td>
+        <td><input type="text" id="age" name="age" onchange="change1()" ></td>
+  </tr>
+  <tr>
+        <td>Phone no:</td>
+        <td><input type="text" id="phone" name="phoneno" onchange="change2()"></td>
+   </tr>
+   <tr>
+        <td>Email:</td>
+        <td><input type="email" id="email" name="email" onchange="change3()" ></td>
+  </tr>
+  <tr>
+        <td>No of tickests:</td>
+        <td><select><option value='1'>1</option>
+                             <option value='2'>2</option>
+                             <option value='3'>3</option>
+                             <option value='4'>4</option>
+                             <option value='5'>5</option>
+      </select></td>
+   </tr>
+   <tr>
+            <td>I accept all terms and conditions</td>
+            <td><input type="checkbox" id="box" name="terms" onchange="change5()"></td>
+   </tr>
+  <tr>
+        <td>Submit:</td>
+        <td><input type="button" name="result" id="submit" value="submit" onclick="change4()"></td>
+  </tr>
+</table>
+</center>
+<script>
+function change() {
+  var x = document.getElementById("fname");
+  x.value=x.value.toUpperCase();
+  var y = document.getElementById("lname");
+  y.value=y.value.toUpperCase();
+}
+function change1()
+{
+  var z=document.getElementById("age");
+  if(z.value<18){
+  z.value='';
+  alert("Age must be greater than or equal to 18");
+  }
+}
+function change2()
+{
+  var a=document.getElementById("phone");
+  if((a.value.length!=10) || (isNaN(a.value))){
+       alert("Enter a valid phone number");
+       a.value=''; 
+     }
+}
+function change3()
+{
+  var b=document.getElementById("email");
+  if(b.value.indexOf('@')<1 || (b.value.lastIndexOf('.')<b.value.indexOf('@')+2)  ||  (b.value.lastIndexOf('.')+2>=b.value.length)){
+       alert("Enter a valid email");
+       b.value=''; 
+     }
+}
+function change4()
+{
+   var c=document.getElementById("box");
+   var d=document.getElementById("submit");
+   if(c.checked==false)
+    {
+       alert("Accept the terms and conditions");
+       d.disabled=true;
+    }
+}
+function change5()
+{
+   var f=document.getElementById("submit");
+   var e=document.getElementById("box");
+   if(e.checked==true)
+    {
+       f.disabled=false;
+    }  
+}
+</script>
+</form>
+</body>
+</html>
